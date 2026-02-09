@@ -5,7 +5,7 @@ from datetime import datetime
 parser = argparse.ArgumentParser(description="Weather Record Program")
 parser.add_argument("path", help="Folder path of weather files")
 parser.add_argument("-e", "--date", required=True, 
-                    help="Year / Year-Month / Year-Month-Day (e.g., 2004 or 2004-08 or 2004-08-15)")
+                    help="Year / Year-Month / Year-Month-Day")
 args = parser.parse_args()
 
 max_temp = -1000
