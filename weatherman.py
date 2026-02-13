@@ -12,7 +12,6 @@ class Weatherman:
     def yearly_extremes(self, value):
         value = str(value)
 
-        # Full date YYYY-MM-DD
         if "-" in value and value.count("-") == 2:
             date_obj = datetime.strptime(value, "%Y-%m-%d").date()
             records = [r for r in self.records if r.date == date_obj]
@@ -22,7 +21,6 @@ class Weatherman:
             rec = records[0]
             self.printer.print_yearly_extremes(rec, rec, rec)
 
-        # Year and month YYYY/MM or YYYY-MM
         elif "/" in value or ("-" in value and value.count("-") == 1):
             year, month = parse_year_month(value)
             records = [r for r in self.records if r.date.year == year and r.date.month == month]
@@ -34,7 +32,6 @@ class Weatherman:
             humid_rec = max(records, key=lambda r: r.max_humidity)
             self.printer.print_yearly_extremes(max_rec, min_rec, humid_rec)
 
-        # Only year YYYY
         else:
             year = int(value)
             year_records = [r for r in self.records if r.date.year == year]
