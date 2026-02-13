@@ -1,5 +1,4 @@
 from date_utils import format_date, get_month_name
-
 class ReportPrinter:
     red = "\033[91m"
     blue = "\033[94m"
